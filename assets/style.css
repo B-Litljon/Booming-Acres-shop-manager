@@ -1,11 +1,17 @@
-.date-range{/* holds all the header elements */
-
+.date-range{ /* holds all the header elements */
+    padding: 8px;
+    margin: 6px;
+    border: 4px dotted red;
 }  
 .to-and-from{/* date input container */
-
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    margin: 6px;
+    border: 2px dotted green;
 }   
 .from{/* the first date for the query */
-
+  
 }   
 .to{/* the last date for the query */
 
@@ -17,25 +23,43 @@
 /* everything in the main is below */
 
 .product-QTY-wrap{/* the wrapper for the data to be appended */
-
+    display:flex; /*setting display to flex allows us to use justify-content: center*/
+    justify-content: center;
+    padding: 8px;
+    margin: 6px;
+    border: 4px dotted red;
 }  
 .products-wrapper{/* container for the products section and list (title and all) */
-
+    padding: 8px;
+    margin: 6px;
+    border: 2px dotted green
 }  
 #products-list-h3{/* title element. should read: 'Product title:' */
-
+    padding: 4px;
+    margin: 4px;
+    border: 1px dotted blue;
 }  
 #products-list{/* 'ul' to appind the 'li' to  */
-
+    padding: 4px;
+    margin: 4px;
+    border: 1px dotted blue;   /*li elements aren't sitting right*/
 }     
 
 
 .QTY-wrapper{/* container for the 'QTY' selectors */
-
+    padding: 8px;
+    margin: 6px;
+    border: 2px dotted green;
 }  
 #QTY{/* title element. should read: 'QTY:' */
+    padding: 4px;
+    margin: 4px;
+    border: 1px dotted blue;
 }   
 #products-QTY{/* the 'ul' to append the quantities data to via 'li' */
+    padding: 4px;
+    margin: 4px;
+    border: 1px dotted blue; /*li aren't sitting right*/
 }  
 
 
