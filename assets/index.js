@@ -9,17 +9,25 @@ var quantity = document.querySelector('#products-quantity'); // list should line
 // first get all the interactive items on the page working  
 
 // next you will need to get access to the apiData
-fetch('https://jsonplaceholder.typicode.com/users')
-   .then(response => response.json())
-   .then(users => {
-    users.forEach(user => {
-        var productTest = (user.username);  // we have the desired data in a variable. issue is its unreachable within the block of this function
-        console.log(productTest);          // another way we can access this data would be to create an empty array
-        var quantityTest = (user.id);     // then 'push' the desired data to it later 
-        console.log(quantityTest);
-        return users;
-    });
-   });
-// then you will destructure what you want from it
+
+function ProductData(product, quantity) {  // object constructor for the api data 
+    this.product = product;
+    this.quantity = quantity;
+  }
+  //\\-FETCH FUNCTION TO GRAB DATA-//\\
+  fetch('https://jsonplaceholder.typicode.com/users')
+     .then(response => response.json()) // converts response to a json object
+     //\\-CREATES A USER OBJECT AND STORES VALUES WITHIN AN ARRAY-//\\
+     .then(users => {  
+          let data = [];  // we create an empty array
+          users.forEach(user => {  // use our object constructor: 'ProductData'
+              let product = user.username;  // product is what we really want the username is just dummy data
+              let quantity = user.id;  // the quantity is the really data we want. user id just so happens to be an integer as well so we used it for testing
+              let productData = new ProductData(product, quantity);  // the var 'productData' now has the desired dummy data within  
+              data.push(productData);  // pushes the dummy data into the empty array we made to store the newly constructed objects each with a username and id number 
+          });
+          console.log(data);
+          return data;
+     });
 
 // append the required data to the page
