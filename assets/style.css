@@ -10,12 +10,6 @@
     margin: 6px;
     border: 2px dotted green;
 }   
-.from{/* the first date for the query */
-  
-}   
-.to{/* the last date for the query */
-
-}   
 /* all the header selectors are in the above group */
 
 
@@ -31,7 +25,8 @@
 }  
 .products-wrapper{/* container for the products section and list (title and all) */
     padding: 8px;
-    margin: 6px;
+    padding-right: 24px;
+    margin: 2px;
     border: 2px dotted green
 }  
 #products-list-h3{/* title element. should read: 'Product title:' */
@@ -39,10 +34,11 @@
     margin: 4px;
     border: 1px dotted blue;
 }  
-#products-list{/* 'ul' to appind the 'li' to  */
-    padding: 4px;
-    margin: 4px;
-    border: 1px dotted blue;   /*li elements aren't sitting right*/
+
+.quantities-wrapper{/* container for the products section and list (title and all) */
+    padding: 8px;
+    margin: 6px;
+    border: 2px dotted green
 }     
 
 
@@ -56,6 +52,8 @@
     margin: 4px;
     border: 1px dotted blue;
 }   
+
+
 #products-QTY{/* the 'ul' to append the quantities data to via 'li' */
     padding: 4px;
     margin: 4px;
