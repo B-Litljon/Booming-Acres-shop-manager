@@ -1,0 +1,1 @@
+// this route will handle everything that needs to be on the main page
