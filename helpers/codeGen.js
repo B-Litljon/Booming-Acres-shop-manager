@@ -18,7 +18,7 @@ const codeVerifier = base64URLEncode(crypto.randomBytes(32));
 
 // With these functions, we can generate
 // the values needed for our OAuth authorization grant.
-const codeChallenge = base64URLEncode(sha256(codeVerifier));
+const codeChallenge = base64URLEncode(sha256(codeVerifier)).toString;
 const state = Math.random().toString(36).substring(7);
 
 

@@ -8,24 +8,17 @@ const apiKey = process.env.API_KEY;
 const redirectUri = ('https://b-litljon.github.io/Booming-Acres-shop-manager');
 const scope = ('transactions_r');
 const state = codeGen.stateGenerator;
-const verifier = codeGen.codeVerifierGen;
+const codeChallenge = codeGen.codeChallenge;
 console.log(apiKey);
 console.log(redirectUri);
 console.log(scope);
 console.log(state);
-console.log(verifier);
+console.log(codeChallenge);
 
 
-//\\-ROUTES-//\\
+//\\-AUTHORIZATION ROUTE-//\\
 authRouter.get('/authorize', (req, res) => {
-    const etsyUrl = `https://www.etsy.com/oauth/connect?
-    response_type=code
-    &client_id=${apiKey}
-    &redirect_uri=${redirectUri}
-    &scope=${scope}
-    &state=${state}
-    &code_challenge=${verifier}
-    &code_challenge_method=S256`
+    const etsyUrl = `https://www.etsy.com/oauth/connect?response_type=code&client_id=${apiKey}&redirect_uri=${redirectUri}&scope=${scope}&state=${state}&code_challenge=${codeChallenge}&code_challenge_method=S256`
   
     res.redirect(etsyUrl);
   });
@@ -43,6 +36,6 @@ module.exports = {
     redirectUri,
     scope,
     state,
-    verifier,
+    codeChallenge,
     authRouter
   };  

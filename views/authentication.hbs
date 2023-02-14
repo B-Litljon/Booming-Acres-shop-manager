@@ -4,7 +4,7 @@ const oAuthRoutes = require('./oAuthRoutes');
 
 <body>
     {{#with oAuthRoute}}
-<a href=`https://www.etsy.com/oauth/connect?response_type=code&redirect_uri={{oAuthRoute.redirectUri}}&scope={{oAuthRoute.scope}}&client_id={{oAuthRoute.apiKey}}&state={{oAuthRoute.state}}&code_challenge={{oAuthRoute.verifier}}&code_challenge_method=S256`>
+<a href=`https://www.etsy.com/oauth/connect?response_type=code&redirect_uri={{oAuthRoute.redirectUri}}&scope={{oAuthRoute.scope}}&client_id={{oAuthRoute.apiKey}}&state={{oAuthRoute.state}}&code_challenge={{oAuthRoute.codeChallenge}}&code_challenge_method=S256`>
     Authenticate with Etsy
 </a>
 </body>
