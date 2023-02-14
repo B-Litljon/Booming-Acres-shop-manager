@@ -3,9 +3,9 @@ const express = require('express');
 const codeGen = require('./../helpers/codeGen');
 const authRouter = express.Router();
 require('dotenv').config();
-require('./../helpers/codeGen')
+//require('./../helpers/codeGen')
 const apiKey = process.env.API_KEY;
-const redirectUri = ('https://b-litljon.github.io/booming-acres-shop-manager');
+const redirectUri = ('https://b-litljon.github.io/Booming-Acres-shop-manager');
 const scope = ('transactions_r');
 const state = codeGen.stateGenerator;
 const verifier = codeGen.codeVerifierGen;
