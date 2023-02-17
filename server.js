@@ -18,7 +18,7 @@ app.get('/authorize', (req, res) => {
 // needs to be removed and updated to display handlebars instead 19-21
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/pages/index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const PORT = 3001
