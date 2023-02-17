@@ -2,8 +2,9 @@
 const express = require('express');
 const codeGen = require('./../helpers/codeGen');
 const authRouter = express.Router();
+const fetch = require('node-fetch');
 require('dotenv').config();
-//require('./../helpers/codeGen')
+
 const apiKey = process.env.API_KEY;
 const redirectUri = ('https://b-litljon.github.io/Booming-Acres-shop-manager');
 const scope = ('transactions_r');
@@ -15,6 +16,11 @@ console.log(scope);
 console.log(state);
 console.log(codeChallenge);
 
+
+
+authRouter.get('/callback', (req, res) => {
+
+})
 
 //\\-AUTHORIZATION ROUTE-//\\
 authRouter.get('/authorize', (req, res) => {
@@ -28,7 +34,15 @@ authRouter.get('/authorize', (req, res) => {
     })
 })
 
-// this route will handle all the oath credentials
+//\\-AUTH TOKEN ENCRYPTION AND STORAGE-//\\
+
+// this route will handle extracting the oAth token from the callback url, =>
+
+
+
+// use a helper function to encrypt the value => 
+
+// store it using sequelize => 
 
 //\\-MODULE EXPORTS-//\\
 module.exports = {
