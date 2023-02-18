@@ -55,7 +55,7 @@ authRouter.get('/callback', async (req, res) => {
   const accessToken = result.access_token; 
   const hashedToken = await bcrypt.hash(accessToken, saltRounds); // hashed token now safe for storage
   // Store the hashed token in a database or environment variable
-  const newAuthToken = await AuthToken.create({
+  const newAuthToken = await AuthToken.create({ // stores token into the database
     token: hashedToken
   });
   res.redirect('/'); // redirect the user to a success page or another appropriate page
