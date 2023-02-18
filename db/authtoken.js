@@ -1,3 +1,4 @@
+const { DataTypes } = require('sequelize');
 const Sequelize = require('Sequelize');
 const sequelize = new Sequelize('database_name', 'username', 'password', {
     host: 'localhost',
@@ -6,7 +7,7 @@ const sequelize = new Sequelize('database_name', 'username', 'password', {
   
 const AuthToken = sequelize.define('AuthToken', {
   token: {
-    type: DataTypes.string,
+    type: DataTypes.STRING,
     allowNull: false,
   },
 }, {
