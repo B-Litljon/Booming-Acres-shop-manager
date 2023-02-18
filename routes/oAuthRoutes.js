@@ -38,6 +38,7 @@ authRouter.get('/authorize', (req, res) => {
 // this route will handle extracting the oAth token from the callback url, =>
 const bcrypt = require('bcrypt')
 const saltRounds = 12;
+
 authRouter.get('/callback', async (req, res) => {
   const { code } = req.query; // extract the OAuth code from the query parameters in the callback URL
   // use the OAuth code to obtain an access token
@@ -73,5 +74,6 @@ module.exports = {
     scope,
     state,
     codeChallenge,
-    authRouter
+    authRouter,
+    callback: authRouter // export authRouter as callback
   };  
