@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const hbs = require('hbs')
 const oAuthRoutes = require('./routes/oAuthRoutes')
-
+const { authRouter, callback } = require('./routes/oAuthRoutes');
 //\\-HANDLEBARS-//\\
 // app.set('views', path.join(__dirname, 'views')); 
 // app.set('view engine', 'hbs');
@@ -11,9 +11,8 @@ const oAuthRoutes = require('./routes/oAuthRoutes')
 
 //\\-AUTHENTICATION ROUTES-//\\
 app.use('/oAuthRoutes', oAuthRoutes.authRouter);
-app.get('/authorize', (req, res) => {
-  res.send('authorize endpoint');
- });
+
+app.use('/callback', callback);
 
 // needs to be removed and updated to display handlebars instead 19-21
 app.use(express.static(path.join(__dirname, 'public')));
