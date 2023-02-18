@@ -18,14 +18,12 @@ console.log(codeChallenge);
 
 
 
-authRouter.get('/callback', (req, res) => {
 
-})
 
 //\\-AUTHORIZATION ROUTE-//\\
 authRouter.get('/authorize', (req, res) => {
     const etsyUrl = `https://www.etsy.com/oauth/connect?response_type=code&client_id=${apiKey}&redirect_uri=${redirectUri}&scope=${scope}&state=${state}&code_challenge=${codeChallenge}&code_challenge_method=S256`
-  
+  //                  etsy authenticationUrl, with the callback uri attached to it. when authentication happens you will be taken back to my github page
     res.redirect(etsyUrl);
   });
 authRouter.get('/authorize', (req, res) => {
@@ -37,8 +35,12 @@ authRouter.get('/authorize', (req, res) => {
 //\\-AUTH TOKEN ENCRYPTION AND STORAGE-//\\
 
 // this route will handle extracting the oAth token from the callback url, =>
-
-
+authRouter.get('/callback', (req, res) => {
+  const { code } = req.query; // extract the OAuth code from the query parameters in the callback URL
+  // use the OAuth code to obtain an access token
+  // encrypt and store the access token securely, such as in a database or environment variable
+  res.redirect('/'); // redirect the user to a success page or another appropriate page
+});
 
 // use a helper function to encrypt the value => 
 
