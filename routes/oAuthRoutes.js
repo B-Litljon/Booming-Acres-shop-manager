@@ -35,9 +35,19 @@ authRouter.get('/authorize', (req, res) => {
 //\\-AUTH TOKEN ENCRYPTION AND STORAGE-//\\
 
 // this route will handle extracting the oAth token from the callback url, =>
-authRouter.get('/callback', (req, res) => {
+authRouter.get('/callback', async (req, res) => {
   const { code } = req.query; // extract the OAuth code from the query parameters in the callback URL
   // use the OAuth code to obtain an access token
+  const response = await fetch('/authorize', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ code }),
+  });
+  const result = await response.json();
+  // handle the response and redirect to the appropriate page
+
   // encrypt and store the access token securely, such as in a database or environment variable
   res.redirect('/'); // redirect the user to a success page or another appropriate page
 });
