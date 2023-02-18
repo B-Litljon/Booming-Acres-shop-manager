@@ -1,6 +1,7 @@
 //\\-VARIABLES & IMPORTS-//\\
 const express = require('express');
 const codeGen = require('./../helpers/codeGen');
+const AuthToken = require('./../db/authtoken');
 const authRouter = express.Router();
 const fetch = require('node-fetch');
 require('dotenv').config();
